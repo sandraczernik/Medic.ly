@@ -11,6 +11,15 @@
         <item>ml</item>
         <item>l</item>
     </string-array>
+
+    <string-array name="medicationTypes">
+        <item>Tablet</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+
 </resources>
 
 

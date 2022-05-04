@@ -86,17 +86,17 @@
         app:layout_constraintVertical_bias="0.057" />
 
     <Spinner
-        android:id="@+id/dosagemeasurement"
-        android:layout_width="119dp"
-        android:layout_height="37dp"
+        android:id="@+id/medicationType"
+        android:layout_width="300dp"
+        android:layout_height="47dp"
         android:spinnerMode="dropdown"
-        android:text="Measurement"
+        android:text="Type"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.815"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintVertical_bias="0.298" />
 
     <EditText
         android:id="@+id/medicationName"
@@ -112,20 +112,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.218" />
 
-    <EditText
-        android:id="@+id/medicationType"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="Medication Type"
-        android:inputType="text"
+    <Spinner
+        android:id="@+id/dosagemeasurement"
+        android:layout_width="119dp"
+        android:layout_height="37dp"
+        android:spinnerMode="dropdown"
+        android:text="Measurement"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.815"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285" />
+        app:layout_constraintVertical_bias="0.377" />
+
 
     <EditText
         android:id="@+id/dosageamount"

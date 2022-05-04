@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+//import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 
@@ -172,7 +173,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public ArrayList<String> getMedicationNames() {
         SQLiteDatabase MyDB = this.getReadableDatabase();
-        String query = "Select medicationName from userMedications";
+        String query = "Select medicationName, medicationType,medicationDose, medicationMeasurement,timepicker3, medicationReminder from userMedications";
         Cursor cursor2 = MyDB.rawQuery(query, null);
 
         //HashMap<Integer,String> medicationList = new HashMap<>();
@@ -180,7 +181,14 @@ public class DBHandler extends SQLiteOpenHelper {
         if (cursor2.moveToFirst()) {
             do{
                 String currentMedicationName = cursor2.getString(0);
-                listMedications.add(currentMedicationName);
+                String currentMedicationType = cursor2.getString(1);
+                String currentmedicationDose = cursor2.getString(2);
+                String currentmedicationMeasurement = cursor2.getString(3);
+                String currenttimepicker3 = cursor2.getString(4);
+                String currentmedicationReminder = cursor2.getString(5);
+                String oneMedication = currentMedicationName + " | " + currentMedicationType + " | " + currentmedicationDose + currentmedicationMeasurement + "     |     " + currenttimepicker3;
+                listMedications.add("\n" + currentmedicationReminder);
+                listMedications.add(oneMedication);
             } while (cursor2.moveToNext());
         }
         cursor2.close();

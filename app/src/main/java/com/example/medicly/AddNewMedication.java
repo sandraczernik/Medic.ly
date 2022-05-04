@@ -19,9 +19,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class AddNewMedication extends AppCompatActivity {
-    EditText medication_Name, medication_Type, medication_Dose, medication_Intructions;
+    EditText medication_Name, medication_Dose, medication_Intructions;
     Button addMedicationButton;
-    Spinner medication_Measurement;
+    Spinner medication_Measurement, medication_Type;
     DatePicker medication_Reminder;
     TimePicker timepicker;
     DBHandler DB;
@@ -38,13 +38,20 @@ public class AddNewMedication extends AppCompatActivity {
 
         addMedicationButton = findViewById(R.id.addMedicationBtn);
         medication_Name = findViewById(R.id.medicationName);
-        medication_Type = findViewById(R.id.medicationType);
         medication_Dose = findViewById(R.id.dosageamount);
         medication_Intructions = findViewById(R.id.medicationInstructions);
         medication_Measurement = findViewById(R.id.dosagemeasurement);
+        medication_Type = findViewById(R.id.medicationType);
+
+        ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(this, R.array.medicationTypes, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        medication_Type.setAdapter(adapter2);
+
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.dosagemeasurements, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         medication_Measurement.setAdapter(adapter);
+
+
         medication_Reminder = (DatePicker)findViewById(R.id.reminder);
         timepicker = (TimePicker) findViewById(R.id.time_picker);
 
@@ -60,7 +67,7 @@ public class AddNewMedication extends AppCompatActivity {
                // newMedication.setMedicationID(DB.getNextMedicationID());
                 newMedication.setMedicationName(medication_Name.getText().toString());
                 newMedication.setMedicationDose(medication_Dose.getText().toString());
-                newMedication.setMedicationType(medication_Type.getText().toString());
+                newMedication.setMedicationType(medication_Type.getSelectedItem().toString());
                 newMedication.setMedicationMeasurement(medication_Measurement.getSelectedItem().toString());
                 newMedication.setMedicationIntructions(medication_Intructions.getText().toString());
                 //String medicationMeasurement  = medication_Measurement.getSelectedItem().toString();
@@ -108,7 +115,6 @@ public class AddNewMedication extends AppCompatActivity {
                     if(insertMed  ){
                     Toast.makeText(AddNewMedication.this, "New Medication has been added", Toast.LENGTH_SHORT).show();
                     medication_Name.setText("");
-                    medication_Type.setText("");
                     medication_Dose.setText("");
                     medication_Intructions.setText("");
                     Intent intent = new Intent(getApplicationContext(),MedicationHomepage.class);

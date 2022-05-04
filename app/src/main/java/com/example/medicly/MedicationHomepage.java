@@ -68,7 +68,7 @@ public class MedicationHomepage extends AppCompatActivity {
         //HashMap<Integer, String> adapter = new HashMap<Integer, String>(this, android.R.layout.simple_spinner_item, medicationList);
        // medicationView.setAdapter(new showAdapter2(showAdapter));
         medicationView.setAdapter(showAdapter);
-        System.out.println("MEDICATION NAME" + this.medicationName);
+        //System.out.println("MEDICATION NAME" + this.medicationName);
 
 
 

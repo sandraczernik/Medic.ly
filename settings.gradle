@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Medic.ly"
 include ':app'
+include ':mediclyos'

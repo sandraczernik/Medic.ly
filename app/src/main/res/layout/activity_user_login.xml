@@ -41,6 +41,7 @@
         android:layout_below="@+id/username1"
         android:layout_marginBottom="132dp"
         android:hint="Password"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/btnsignin1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"

@@ -3,7 +3,7 @@ package com.example.medicly;
 public class User {
 
     private int userID;
-    private String firstname;
+    private static String  firstname;
     private String lastname;
     private String username;
     private String userbirthday;

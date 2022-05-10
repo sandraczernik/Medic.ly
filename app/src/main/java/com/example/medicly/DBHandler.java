@@ -14,6 +14,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private int currentID;
     private int currentUser;
     private int currentMedicationID;
+    private int userIDNext;
     public DBHandler(Context context) {
         super(context, "UserAccounts.db", null, 1);
     }
@@ -139,20 +140,20 @@ public class DBHandler extends SQLiteOpenHelper {
 //
 //    }
 //
-//    public int getUserID(String userID) {
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
-//        String query = "Select username from users WHERE userID = \"" + userID + "\";";
-//        int currentUser = -1;
-//        Cursor cursor2 = MyDB.rawQuery(query, null);
-//        if (cursor2.moveToFirst()) {
-//            currentUser = cursor2.getInt(0);
-//
-//        }
-//        cursor2.close();
-//        System.out.println(currentUser);
-//        return currentUser;
-//
+    public int getUserID(String userID) {
+        SQLiteDatabase MyDB = this.getReadableDatabase();
+        String query = "Select username from users WHERE userID = \"" + userID + "\";";
+        int currentUser = -1;
+        Cursor cursor2 = MyDB.rawQuery(query, null);
+        if (cursor2.moveToFirst()) {
+            currentUser = cursor2.getInt(0);
 
+        }
+        cursor2.close();
+        System.out.println(currentUser);
+        return currentUser;
+
+    }
 
 //    }
 //    public ArrayList<Integer> getMedicationID() {
@@ -170,6 +171,21 @@ public class DBHandler extends SQLiteOpenHelper {
 //        return listMedications;
 //
 //    }
+
+//}
+//    public int getUserID() {
+//        SQLiteDatabase MyDB = this.getReadableDatabase();
+//        String query = "Select userID from users  WHERE userID = \"" + userID + "\";";
+//        Cursor cursor2 = MyDB.rawQuery(query, null);
+//        if (cursor2.moveToFirst()) {
+//            userIDNext = cursor2.getInt(0);
+//            cursor2.moveToNext();
+//        }
+//
+//        return userIDNext;
+//    }
+//
+
 
     public ArrayList<String> getMedicationNames() {
         SQLiteDatabase MyDB = this.getReadableDatabase();
@@ -195,8 +211,6 @@ public class DBHandler extends SQLiteOpenHelper {
         return listMedications;
 
     }
-
-
 
 
 }

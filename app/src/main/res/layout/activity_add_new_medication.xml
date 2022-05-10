@@ -22,24 +22,25 @@
 
     <DatePicker
         android:id="@+id/reminder"
-        android:layout_width="290dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="112dp"
+        android:layout_width="wrap_content"
+        android:layout_height="124dp"
+        android:layout_marginBottom="104dp"
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TimePicker
         android:id="@+id/time_picker"
-        android:layout_width="295dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="212dp"
+        android:layout_width="wrap_content"
+        android:layout_height="118dp"
+        android:layout_marginBottom="228dp"
         android:layout_weight="4"
         android:timePickerMode="spinner"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -48,6 +49,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
         android:ems="10"
+        android:gravity="center"
         android:hint="Medication Time and Date"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,7 +57,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.538" />
+        app:layout_constraintVertical_bias="0.488" />
 
     <EditText
         android:id="@+id/medicationInstructions"
@@ -70,20 +72,20 @@
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451" />
+        app:layout_constraintVertical_bias="0.4" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="349dp"
-        android:layout_height="68dp"
+        android:layout_width="353dp"
+        android:layout_height="61dp"
         android:gravity="center"
         android:text="Add new medication"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/medicationType"
@@ -93,10 +95,23 @@
         android:text="Type"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298" />
+        app:layout_constraintVertical_bias="0.255" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="414dp"
+        android:layout_height="62dp"
+        android:background="#1C6C7A"
+        android:translationZ="-2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/medicationName"
@@ -110,7 +125,8 @@
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintVertical_bias="0.15" />
+
 
     <Spinner
         android:id="@+id/dosagemeasurement"
@@ -120,11 +136,10 @@
         android:text="Measurement"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.815"
+        app:layout_constraintHorizontal_bias="0.808"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
-
+        app:layout_constraintVertical_bias="0.334" />
 
     <EditText
         android:id="@+id/dosageamount"
@@ -139,7 +154,7 @@
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.365" />
+        app:layout_constraintVertical_bias="0.316" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

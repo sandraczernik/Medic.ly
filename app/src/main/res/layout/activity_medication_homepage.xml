@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="349dp"
-        android:layout_height="68dp"
+        android:layout_width="313dp"
+        android:layout_height="41dp"
         android:gravity="center"
         android:text="Home"
         android:textSize="34sp"
@@ -23,87 +23,89 @@
 
     <ImageButton
         android:id="@+id/addbtn"
-        android:layout_width="88dp"
-        android:layout_height="77dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="4dp"
         android:background="#00FFFFFF"
-        android:translationZ="1dp"
         android:clickable="true"
         android:scaleType="fitCenter"
+        android:translationZ="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/icons8_plus___50" />
 
     <ImageButton
         android:id="@+id/settingbtn"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
         android:clickable="true"
         android:scaleType="centerInside"
         android:translationZ="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.757"
+        app:layout_constraintHorizontal_bias="0.73"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/icons8_settings_50" />
 
     <ImageButton
         android:id="@+id/helpbutton"
 
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
         android:clickable="true"
         android:scaleType="centerInside"
         android:translationZ="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.979"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/icons8_help_50" />
 
     <ImageButton
         android:id="@+id/homepagebtn"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
-        android:translationZ="1dp"
         android:scaleType="centerInside"
+        android:translationZ="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/icons8_home_50" />
 
     <ImageButton
         android:id="@+id/profilebtn"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
         android:background="#00FFFFFF"
         android:scaleType="centerInside"
         android:translationZ="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.239"
+        app:layout_constraintHorizontal_bias="0.271"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/icons8_male_user_50" />
 
+
     <TextView
         android:id="@+id/dateTextView"
-        android:layout_width="215dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="96dp"
+        android:layout_width="178dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="84dp"
         android:gravity="center"
         android:text="TextView"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -113,31 +115,32 @@
         android:layout_height="448dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintVertical_bias="0.579" />
 
 
     <View
         style="@style/Divider"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="76dp"
         android:translationZ="-1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <View
         style="@style/Dividertop"
+        android:layout_width="2dp"
+        android:layout_height="75dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintHorizontal_bias="0.202"
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
         android:id="@+id/view4"
         style="@style/Dividertop"
+        android:layout_height="75dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -147,6 +150,7 @@
     <View
         android:id="@+id/view3"
         style="@style/Dividertop"
+        android:layout_height="75dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -156,6 +160,7 @@
     <View
         android:id="@+id/view5"
         style="@style/Dividertop"
+        android:layout_height="75dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,8 +170,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="413dp"
-        android:layout_height="86dp"
+        android:layout_width="414dp"
+        android:layout_height="62dp"
         android:background="#1C6C7A"
         android:translationZ="-2dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -176,6 +181,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="422dp"
+        android:layout_height="77dp"
+        android:background="#1C6C7A"
+        android:translationZ="-2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

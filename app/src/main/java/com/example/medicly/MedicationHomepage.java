@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,7 +30,8 @@ import java.util.Locale;
 
 
 public class MedicationHomepage extends AppCompatActivity {
-
+    //        welcomebackUser = findViewById(R.id.welcomebackUser);
+//        welcomebackUser.setText("Welcome back " + userData.getUsername());
     DBHandler DB;
 
     //private HashMap<Integer,String> medicationList = new HashMap<>();
@@ -37,56 +39,46 @@ public class MedicationHomepage extends AppCompatActivity {
     private ArrayList<String> medicationName = new ArrayList<>();
 
     ListView medicationView;
-
+    TextView welcomebackUser;
+    User userData = new User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medication_homepage);
 
-
         String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
         TextView date  = (TextView) findViewById(R.id.dateTextView);
+
         date.setText(date_n);
-
-        ImageButton addbtn = (ImageButton) findViewById(R.id.addbtn);
-        ImageButton homepagebtn = (ImageButton) findViewById(R.id.homepagebtn);
-        ImageButton profilebtn = (ImageButton) findViewById(R.id.profilebtn);
-        ImageButton settingbtn = (ImageButton) findViewById(R.id.settingbtn);
-        ImageButton helpbutton = (ImageButton) findViewById(R.id.helpbutton);
-
+        //medication list
         DB = new DBHandler(this);
-
-        //this.medicationNameID = DB.getMedicationID();
         this.medicationName = DB.getMedicationNames();
-        //medicationList = DB.getMedicationNames();
-
         medicationView = findViewById(R.id.medicationView);
         ArrayAdapter<String> showAdapter;
         showAdapter
          = new ArrayAdapter<String>(this,androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, medicationName);
-        //HashMap<Integer, String> adapter = new HashMap<Integer, String>(this, android.R.layout.simple_spinner_item, medicationList);
-       // medicationView.setAdapter(new showAdapter2(showAdapter));
         medicationView.setAdapter(showAdapter);
-        //System.out.println("MEDICATION NAME" + this.medicationName);
-
-
 
        // recyclerviewList = findViewById(R.id.recyclerView);
+
+        //NAVIGATION BUTTONS
+        ImageButton addbtn =  findViewById(R.id.addbtn);
+        ImageButton homepagebtn = findViewById(R.id.homepagebtn);
+        ImageButton profilebtn = findViewById(R.id.profilebtn);
+        ImageButton settingbtn = findViewById(R.id.settingbtn);
+        ImageButton helpbutton = findViewById(R.id.helpbutton);
+
+        //NAVIGATION
 
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new  Intent(MedicationHomepage.this, AddNewMedication.class);
 
-//                int currentUserID = getIntent().getExtras().getInt("userID");
-//                System.out.println("TEST " + currentUserID);
-//                intent.putExtra("userID",currentUserID);
-
                 startActivity(intent);
             }
         });
-
         homepagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,8 +111,7 @@ public class MedicationHomepage extends AppCompatActivity {
             }
         });
 
-    }
+    }}
 
 
 
-}

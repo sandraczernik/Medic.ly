@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,9 +52,13 @@ public class UserRegister extends AppCompatActivity {
                 userData.setPassword(pass);
 
 
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
                 if(userData.getUsername().equals("")||userData.getPassword().equals("")||repass.equals("")||userData.getFirstname().equals("")||userData.getLastname().equals("")||userData.getUserbirthday().equals(""))
                     Toast.makeText(UserRegister.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
+                    if(userData.getUsername().matches(emailPattern)){
+
                     if(pass.equals(repass)){
                         Boolean checkuser = DB.checkusername(user);
                         if(checkuser==false){
@@ -64,9 +70,8 @@ public class UserRegister extends AppCompatActivity {
                                 username.setText("");
                                 userbirthday.setText("");
                                 password.setText("");
+                                repassword.setText("");
                                 Intent intent = new Intent(getApplicationContext(),UserLogin.class);
-//                              int currentUserID = DB.getUserID(username.getText().toString());
-//                               intent.putExtra("userID",currentUserID);
                                 startActivity(intent);
                             }else{
                                 Toast.makeText(UserRegister.this, "Registration failed", Toast.LENGTH_SHORT).show();
@@ -78,8 +83,14 @@ public class UserRegister extends AppCompatActivity {
                     }else{
                         Toast.makeText(UserRegister.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
                     }
-                } }
+                } else{
+                        Toast.makeText(UserRegister.this, "Please use a valid email", Toast.LENGTH_SHORT).show();
+                    }
+                }}
+
+
         });
+
 
 
     }

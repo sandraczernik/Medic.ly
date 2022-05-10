@@ -2,11 +2,11 @@ package com.example.medicly;
 
 public class Medication {
     private int medicationID;
-    private String medicationName;
-    private String medicationType;
-    private String medicationDose;
-    private String medicationMeasurement;
-    private String medicationIntructions;
+    private static String medicationName;
+    private static String medicationType;
+    private static String medicationDose;
+    private static String medicationMeasurement;
+    private static String medicationIntructions;
     private String medicationReminder;
     private String timepicker3;
 

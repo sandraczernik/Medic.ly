@@ -3,6 +3,12 @@ package com.example.medicly;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -60,10 +66,13 @@ public class AddNewMedication extends AppCompatActivity {
         addMedicationButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
+
             public void onClick(View v) {
 
 
                 Medication newMedication = new Medication();
+
+
                // newMedication.setMedicationID(DB.getNextMedicationID());
                 newMedication.setMedicationName(medication_Name.getText().toString());
                 newMedication.setMedicationDose(medication_Dose.getText().toString());
@@ -85,16 +94,19 @@ public class AddNewMedication extends AppCompatActivity {
                 int year = medication_Reminder.getYear();
                 int month = medication_Reminder.getMonth();
                 int day = medication_Reminder.getDayOfMonth();
+
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(year,month,day);
                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 //String medicationReminder = format.format(calendar.getTime());
                 newMedication.setMedicationReminder(format.format(calendar.getTime()));
-
+                createNotificationChannel();
 
                 //TIME
                 int hour = timepicker.getCurrentHour();
                 int minute = timepicker.getCurrentMinute();
+
+                setAlarm(calendar.getTimeInMillis());
                 //String timepicker3 = Integer.parseInt(Integer.toString(hour)) + ":" + Integer.parseInt(Integer.toString(minute));
                 newMedication.setTimepicker3(Integer.parseInt(Integer.toString(hour)) + ":" + Integer.parseInt(Integer.toString(minute)));
                 System.out.println("DOSE" + newMedication.getMedicationDose());
@@ -120,9 +132,39 @@ public class AddNewMedication extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),MedicationHomepage.class);
                     startActivity(intent);
                 }}}
-            });
             }
+
+
+            );
+
+            }
+
+    private void setAlarm(long timeInMillis) {
+        AlarmManager alarmManager = (AlarmManager) getSystemService((Context.ALARM_SERVICE));
+        Intent intent = new Intent(this, BroadcastReceiverAlarm.class);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+
+        alarmManager.set(AlarmManager.RTC, timeInMillis, pendingIntent);
+
+        Toast.makeText(AddNewMedication.this, "Medication Reminder has been set", Toast.LENGTH_SHORT).show();
     }
+
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "UserNotificationChannel";
+            String description = "Channel reminder";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("notifyUser", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+
+        }
+    }
+
+}
 
 
 

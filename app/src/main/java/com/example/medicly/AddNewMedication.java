@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.Spinner;
@@ -162,6 +163,56 @@ public class AddNewMedication extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
 
         }
+
+
+        //NAVIGATION BUTTONS
+        ImageButton addbtn = findViewById(R.id.addbtn);
+        ImageButton homepagebtn = findViewById(R.id.homepagebtn);
+        ImageButton profilebtn = findViewById(R.id.profilebtn);
+        ImageButton settingbtn = findViewById(R.id.settingbtn);
+        ImageButton helpbutton = findViewById(R.id.helpbutton);
+
+        //NAVIGATION
+
+        addbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddNewMedication.this, AddNewMedication.class);
+
+                startActivity(intent);
+            }
+        });
+        homepagebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddNewMedication.this, MedicationHomepage.class);
+                startActivity(intent);
+            }
+        });
+
+        profilebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddNewMedication.this, Profile.class);
+                startActivity(intent);
+            }
+        });
+
+        settingbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddNewMedication.this, Settings.class);
+                startActivity(intent);
+            }
+        });
+
+        helpbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddNewMedication.this, userHelp.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

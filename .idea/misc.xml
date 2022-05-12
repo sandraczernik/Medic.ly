@@ -5,11 +5,13 @@
       <map>
         <entry key="..\:/Medicly4/app/src/main/res/layout/activity_add_new_medication.xml" value="0.33" />
         <entry key="..\:/Medicly4/app/src/main/res/layout/activity_forgot_password.xml" value="0.253125" />
+        <entry key="..\:/Medicly4/app/src/main/res/layout/activity_help.xml" value="0.2957427536231884" />
         <entry key="..\:/Medicly4/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Medicly4/app/src/main/res/layout/activity_medication_homepage.xml" value="0.33" />
         <entry key="..\:/Medicly4/app/src/main/res/layout/activity_nav.xml" value="0.253125" />
         <entry key="..\:/Medicly4/app/src/main/res/layout/activity_profile.xml" value="0.28541666666666665" />
         <entry key="..\:/Medicly4/app/src/main/res/layout/activity_settings.xml" value="0.25885416666666666" />
+        <entry key="..\:/Medicly4/app/src/main/res/layout/activity_user_help.xml" value="0.2957427536231884" />
         <entry key="..\:/Medicly4/app/src/main/res/layout/activity_user_login.xml" value="0.2" />
         <entry key="..\:/Medicly4/app/src/main/res/layout/activity_user_register.xml" value="0.22" />
         <entry key="..\:/Medicly4/app/src/main/res/layout/fragment_notifications.xml" value="0.253125" />

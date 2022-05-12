@@ -7,13 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Profile extends AppCompatActivity {
+public class userHelp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-
+        setContentView(R.layout.activity_user_help);
 
         //NAVIGATION BUTTONS
         ImageButton addbtn = findViewById(R.id.addbtn);
@@ -27,7 +26,7 @@ public class Profile extends AppCompatActivity {
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Profile.this, AddNewMedication.class);
+                Intent intent = new Intent(userHelp.this, AddNewMedication.class);
 
                 startActivity(intent);
             }
@@ -35,7 +34,7 @@ public class Profile extends AppCompatActivity {
         homepagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Profile.this, MedicationHomepage.class);
+                Intent intent = new Intent(userHelp.this, MedicationHomepage.class);
                 startActivity(intent);
             }
         });
@@ -43,7 +42,7 @@ public class Profile extends AppCompatActivity {
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Profile.this, Profile.class);
+                Intent intent = new Intent(userHelp.this, Profile.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +50,7 @@ public class Profile extends AppCompatActivity {
         settingbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Profile.this, Settings.class);
+                Intent intent = new Intent(userHelp.this, Settings.class);
                 startActivity(intent);
             }
         });
@@ -59,11 +58,9 @@ public class Profile extends AppCompatActivity {
         helpbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Profile.this, userHelp.class);
+                Intent intent = new Intent(userHelp.this, userHelp.class);
                 startActivity(intent);
             }
         });
-
     }
-
 }

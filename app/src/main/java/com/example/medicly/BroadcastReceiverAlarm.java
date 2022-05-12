@@ -55,7 +55,8 @@ public class BroadcastReceiverAlarm extends BroadcastReceiver {
         CharSequence measurement = newMedication.getMedicationMeasurement();
         CharSequence instructions = newMedication.getMedicationIntructions();
 
-        NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(context,"notifyUser")
+        NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(context,"notifyUser");
+        notifyBuilder.setColor(context.getResources().getColor((R.color.teal_700)))
                 .setSmallIcon((R.drawable.medicly))
                 .setContentTitle(name)
                 .setContentText(dose+ "" + measurement)

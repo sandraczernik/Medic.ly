@@ -90,7 +90,7 @@ public class MedicationHomepage extends AppCompatActivity {
         profilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new  Intent(MedicationHomepage.this, MedicationHomepage.class);
+                Intent intent = new  Intent(MedicationHomepage.this, Profile.class);
                 startActivity(intent);
             }
         });
@@ -98,7 +98,7 @@ public class MedicationHomepage extends AppCompatActivity {
         settingbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new  Intent(MedicationHomepage.this, MedicationHomepage.class);
+                Intent intent = new  Intent(MedicationHomepage.this, Settings.class);
                 startActivity(intent);
             }
         });
@@ -106,7 +106,7 @@ public class MedicationHomepage extends AppCompatActivity {
         helpbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new  Intent(MedicationHomepage.this, MedicationHomepage.class);
+                Intent intent = new  Intent(MedicationHomepage.this, userHelp.class);
                 startActivity(intent);
             }
         });

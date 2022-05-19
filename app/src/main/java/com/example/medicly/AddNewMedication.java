@@ -101,9 +101,9 @@ public class AddNewMedication extends AppCompatActivity {
 
                 //if medication name, type, dose, measurements, instructions etc are set to "" (empty), promp user to enter all fields, otherwise insert data
                 //input by user to database
-                if (newMedication.getMedicationName().equals("") || newMedication.getMedicationType().equals("") || newMedication.getMedicationDose().equals("") || newMedication.getMedicationMeasurement().equals("") || newMedication.getMedicationIntructions().equals("") || newMedication.getMedicationReminder().equals("") || newMedication.getTimepicker3().equals(""))
+                if (newMedication.getMedicationName().equals("") || newMedication.getMedicationType().equals("") || newMedication.getMedicationDose().equals("") || newMedication.getMedicationMeasurement().equals("") || newMedication.getMedicationReminder().equals("") || newMedication.getTimepicker3().equals(""))
                     Toast.makeText(AddNewMedication.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                else {
+                if(newMedication.getMedicationName().length() < 40){
                     Boolean insertMed = DB.insertMedication(newMedication.getMedicationName(), newMedication.getMedicationType(), newMedication.getMedicationDose(), newMedication.getMedicationMeasurement(), newMedication.getMedicationType(), newMedication.getMedicationReminder(), newMedication.getTimepicker3());
                     //if medication has been inserted into the database, create toast message, and set relevant fields to empty for security reasons
                     if (insertMed) {
@@ -115,10 +115,11 @@ public class AddNewMedication extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), MedicationHomepage.class);
                         startActivity(intent);
                     }
+                }else{
+                    Toast.makeText(AddNewMedication.this, "Please enter a medication name that is less than 40 characters", Toast.LENGTH_LONG).show();
                 }
             }
-        }
-        );
+        });
 
     }
 

@@ -84,14 +84,14 @@
 
 
     <View
-        style="@style/Divider"
+        style="@style/Dividertopnav"
         android:layout_marginBottom="76dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        style="@style/Dividertop"
+        style="@style/Dividersidenav"
         android:layout_width="2dp"
         android:layout_height="75dp"
         android:translationZ="-1dp"
@@ -102,7 +102,7 @@
 
     <View
         android:id="@+id/view4"
-        style="@style/Dividertop"
+        style="@style/Dividersidenav"
         android:layout_height="75dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,7 +112,7 @@
 
     <View
         android:id="@+id/view3"
-        style="@style/Dividertop"
+        style="@style/Dividersidenav"
         android:layout_height="75dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -122,7 +122,7 @@
 
     <View
         android:id="@+id/view5"
-        style="@style/Dividertop"
+        style="@style/Dividersidenav"
         android:layout_height="75dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -132,7 +132,7 @@
 
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/addNewMedicationText"
         android:layout_width="414dp"
         android:layout_height="62dp"
         android:background="#1C6C7A"
@@ -145,7 +145,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/rectangleBlueBottom"
         android:layout_width="422dp"
         android:layout_height="77dp"
         android:background="#1C6C7A"

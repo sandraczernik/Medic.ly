@@ -138,8 +138,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/navDivider4"
-        style="@style/Dividertop"
+        android:id="@+id/view4"
+        style="@style/Dividersidenav"
         android:layout_height="75dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -148,8 +148,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/navDivider3"
-        style="@style/Dividertop"
+        android:id="@+id/view3"
+        style="@style/Dividersidenav"
         android:layout_height="75dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,8 +158,8 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/navDivider5"
-        style="@style/Dividertop"
+        android:id="@+id/view5"
+        style="@style/Dividersidenav"
         android:layout_height="75dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"

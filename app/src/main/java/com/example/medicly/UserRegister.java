@@ -3,7 +3,9 @@ package com.example.medicly;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -26,10 +28,10 @@ public class UserRegister extends AppCompatActivity {
 
         //creation of variables based on user input
         firstname = findViewById(R.id.firstname);
-        lastname =  findViewById(R.id.lastname);
-        username =  findViewById(R.id.username);
-        userbirthday =  findViewById(R.id.userbirthday);
-        password =  findViewById(R.id.password);
+        lastname = findViewById(R.id.lastname);
+        username = findViewById(R.id.username);
+        userbirthday = findViewById(R.id.userbirthday);
+        password = findViewById(R.id.password);
         repassword = findViewById(R.id.repassword);
         signup = findViewById(R.id.btnsignup);
         DB = new DBHandler(this);
@@ -59,48 +61,55 @@ public class UserRegister extends AppCompatActivity {
 
                 //if fields are empty, throw error, otherwise run method to check for other validation, then check if password is equal to retyped password
                 //run insert user method if all if statements are satisfied
-                if(userData.getUsername().equals("")||userData.getPassword().equals("")||repass.equals("")||userData.getFirstname().equals("")||userData.getLastname().equals("")||userData.getUserbirthday().equals(""))
+                if (userData.getUsername().equals("") || userData.getPassword().equals("") || repass.equals("") || userData.getFirstname().equals("") || userData.getLastname().equals("") || userData.getUserbirthday().equals(""))
                     Toast.makeText(UserRegister.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                else{
-                    if(userData.getUsername().matches(emailPattern)){
 
-                    if(pass.equals(repass)){
-                        Boolean checkuser = DB.checkusername(user);
-                        if(checkuser==false){
-                            Boolean insert = DB.insertData(first, last, user, bday, pass);
-                            if(insert){
-                                Toast.makeText(UserRegister.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                                //set all fields input by user to "" for security reasons
-                                firstname.setText("");
-                                lastname.setText("");
-                                username.setText("");
-                                userbirthday.setText("");
-                                password.setText("");
-                                repassword.setText("");
-                                Intent intent = new Intent(getApplicationContext(),UserLogin.class);
-                                startActivity(intent);
-                            }else{
-                                Toast.makeText(UserRegister.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                if (userData.getUsername().matches(emailPattern)) {
+                    if (userData.getFirstname().length() < 30) {
+                        if (userData.getLastname().length() < 30) {
+                            if (pass.equals(repass)) {
+                                Boolean checkuser = DB.checkusername(user);
+                                if (checkuser == false) {
+                                    Boolean insert = DB.insertData(first, last, user, bday, pass);
+                                    if (insert) {
+                                        Toast.makeText(UserRegister.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                        //set all fields input by user to "" for security reasons
+                                        firstname.setText("");
+                                        lastname.setText("");
+                                        username.setText("");
+                                        userbirthday.setText("");
+                                        password.setText("");
+                                        repassword.setText("");
+                                        Intent intent = new Intent(getApplicationContext(), UserLogin.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Toast.makeText(UserRegister.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                                    }
+                                } else {
+                                    Toast.makeText(UserRegister.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(UserRegister.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
                             }
+                        } else {
+                            Toast.makeText(UserRegister.this, "Please enter a last name that is less than 30 characters", Toast.LENGTH_LONG).show();
                         }
-                        else{
-                            Toast.makeText(UserRegister.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
-                        }
-                    }else{
-                        Toast.makeText(UserRegister.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(UserRegister.this, "Please enter a first name that is less than 30 characters", Toast.LENGTH_LONG).show();
                     }
-                } else{
-                        Toast.makeText(UserRegister.this, "Please use a valid email", Toast.LENGTH_SHORT).show();
-                    }
-                }}
-        });
 
+                } else {
+                    Toast.makeText(UserRegister.this, "Please use a valid email", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            });
     }
+            //button to allow current users to navigate straight to login page
+            public void currentUser(View view) {
+                Intent intentSign = new Intent(this, UserLogin.class);
+                startActivity(intentSign);
 
-    //button to allow current users to navigate straight to login page
-    public void currentUser(View view) {
-        Intent intentSign = new Intent (this, UserLogin.class);
-        startActivity(intentSign);
 
+        }
     }
-}

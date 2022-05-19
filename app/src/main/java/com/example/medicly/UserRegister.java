@@ -16,27 +16,29 @@ import android.widget.Toast;
 public class UserRegister extends AppCompatActivity {
 
     EditText firstname, lastname, username, userbirthday, password, repassword;
-    Button signup, signin;
+    Button signup;
     DBHandler DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_register);
-        firstname = (EditText) findViewById(R.id.firstname);
-        lastname = (EditText) findViewById(R.id.lastname);
-        username = (EditText) findViewById(R.id.username);
-        userbirthday = (EditText) findViewById(R.id.userbirthday);
-        password = (EditText) findViewById(R.id.password);
-        repassword = (EditText) findViewById(R.id.repassword);
-        signup = (Button) findViewById(R.id.btnsignup);
-        //signin = (TextView) findViewById(R.id.btnsignin);
+
+        //creation of variables based on user input
+        firstname = findViewById(R.id.firstname);
+        lastname =  findViewById(R.id.lastname);
+        username =  findViewById(R.id.username);
+        userbirthday =  findViewById(R.id.userbirthday);
+        password =  findViewById(R.id.password);
+        repassword = findViewById(R.id.repassword);
+        signup = findViewById(R.id.btnsignup);
         DB = new DBHandler(this);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                //setting retrieved variables from layout to strings
                 String first = firstname.getText().toString();
                 String last = lastname.getText().toString();
                 String user = username.getText().toString();
@@ -44,6 +46,7 @@ public class UserRegister extends AppCompatActivity {
                 String pass = password.getText().toString();
                 String repass = repassword.getText().toString();
 
+                //new userData objects, using setters to set all relevant fields
                 User userData = new User();
                 userData.setFirstname(first);
                 userData.setLastname(last);
@@ -51,9 +54,11 @@ public class UserRegister extends AppCompatActivity {
                 userData.setUserbirthday(bday);
                 userData.setPassword(pass);
 
-
+                //validation checking
                 String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+                //if fields are empty, throw error, otherwise run method to check for other validation, then check if password is equal to retyped password
+                //run insert user method if all if statements are satisfied
                 if(userData.getUsername().equals("")||userData.getPassword().equals("")||repass.equals("")||userData.getFirstname().equals("")||userData.getLastname().equals("")||userData.getUserbirthday().equals(""))
                     Toast.makeText(UserRegister.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
@@ -65,6 +70,7 @@ public class UserRegister extends AppCompatActivity {
                             Boolean insert = DB.insertData(first, last, user, bday, pass);
                             if(insert){
                                 Toast.makeText(UserRegister.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                //set all fields input by user to "" for security reasons
                                 firstname.setText("");
                                 lastname.setText("");
                                 username.setText("");
@@ -87,13 +93,11 @@ public class UserRegister extends AppCompatActivity {
                         Toast.makeText(UserRegister.this, "Please use a valid email", Toast.LENGTH_SHORT).show();
                     }
                 }}
-
-
         });
 
-
-
     }
+
+    //button to allow current users to navigate straight to login page
     public void currentUser(View view) {
         Intent intentSign = new Intent (this, UserLogin.class);
         startActivity(intentSign);

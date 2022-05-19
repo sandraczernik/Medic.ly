@@ -14,7 +14,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-
+        /*START of navigation*/
         //NAVIGATION BUTTONS
         ImageButton addbtn = findViewById(R.id.addbtn);
         ImageButton homepagebtn = findViewById(R.id.homepagebtn);
@@ -63,7 +63,7 @@ public class Profile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        /*END of navigation*/
     }
 
 }

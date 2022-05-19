@@ -8,7 +8,7 @@
     tools:context=".Profile">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/profileText"
         android:layout_width="313dp"
         android:layout_height="41dp"
         android:gravity="center"
@@ -95,15 +95,16 @@
         app:srcCompat="@drawable/icons8_male_user_50" />
 
 
+
     <View
-        style="@style/Divider"
+        style="@style/Dividertopnav"
         android:layout_marginBottom="76dp"
         android:translationZ="-1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        style="@style/Dividertop"
+        style="@style/Dividersidenav"
         android:layout_width="2dp"
         android:layout_height="75dp"
         android:translationZ="-1dp"
@@ -113,7 +114,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/view4"
+        android:id="@+id/navDivider4"
         style="@style/Dividertop"
         android:layout_height="75dp"
         android:translationZ="-1dp"
@@ -123,7 +124,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/navDivider3"
         style="@style/Dividertop"
         android:layout_height="75dp"
         android:translationZ="-1dp"
@@ -133,7 +134,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/view5"
+        android:id="@+id/navDivider5"
         style="@style/Dividertop"
         android:layout_height="75dp"
         android:translationZ="-1dp"

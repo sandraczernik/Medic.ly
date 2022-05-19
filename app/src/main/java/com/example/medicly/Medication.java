@@ -1,6 +1,8 @@
 package com.example.medicly;
 
 public class Medication {
+    //creation of variables relating to medication information, this class uses getters and setters so variables can be safely stored within this class,
+    //and can only be retrieved using the relevant getter and setter methods()
     private int medicationID;
     private static String medicationName;
     private static String medicationType;
@@ -8,11 +10,11 @@ public class Medication {
     private static String medicationMeasurement;
     private static String medicationIntructions;
     private String medicationReminder;
-    private String timepicker3;
+    private String userReminderTime;
 
 
 
-    public Medication(int medicationID,String  medicationName, String medicationType, String medicationDose, String medicationMeasurement, String medicationIntructions,String medicationReminder,String timepicker3) {
+    public Medication(int medicationID,String  medicationName, String medicationType, String medicationDose, String medicationMeasurement, String medicationIntructions,String medicationReminder,String userReminderTime) {
 
         this.medicationID = medicationID ;
         this.medicationName = medicationName;
@@ -21,7 +23,7 @@ public class Medication {
         this.medicationMeasurement = medicationMeasurement;
         this.medicationIntructions = medicationIntructions;
         this.medicationReminder = medicationReminder;
-       this.timepicker3 = timepicker3;
+       this.userReminderTime = userReminderTime;
     }
 
     public Medication() {
@@ -37,11 +39,11 @@ public class Medication {
     }
 
     public String getTimepicker3() {
-        return timepicker3;
+        return userReminderTime;
     }
 
-    public void setTimepicker3(String timepicker3) {
-        this.timepicker3 = timepicker3;
+    public void setTimepicker3(String userReminderTime) {
+        this.userReminderTime = userReminderTime;
     }
 
     public void setMedicationID(int medicationID) {

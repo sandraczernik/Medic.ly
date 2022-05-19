@@ -1,7 +1,10 @@
 package com.example.medicly;
 
 public class User {
+    //creation of variables relating to medication information, this class uses getters and setters so variables can be safely stored within this class,
+    //and can only be retrieved using the relevant getter and setter methods()
 
+    // creation of variables
     private int userID;
     private static String  firstname;
     private String lastname;

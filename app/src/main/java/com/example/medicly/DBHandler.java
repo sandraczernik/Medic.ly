@@ -11,16 +11,14 @@ import java.util.ArrayList;
 public class DBHandler extends SQLiteOpenHelper {
 
     public static final String DBNAME = "MedicationApp";
-    private int currentID;
-    private int currentUser;
-    private int currentMedicationID;
-    private int userIDNext;
+    //creation of DBHandler, used on all pages dealing with database functions
     public DBHandler(Context context) {
-        super(context, "UserAccounts.db", null, 1);
+        super(context, DBNAME, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
+        //creating user table
         MyDB.execSQL("create Table if not exists users(" +
                 "userID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "firstname TEXT, " +
@@ -30,6 +28,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 "password TEXT)"
         );
 
+        //creating medications table
         MyDB.execSQL("create Table if not exists userMedications(" +
                 "medicationID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "medicationName TEXT," +
@@ -38,10 +37,10 @@ public class DBHandler extends SQLiteOpenHelper {
                 "medicationMeasurement TEXT," +
                 "medicationIntructions TEXT," +
                 "medicationReminder TEXT," +
-                "timepicker3 TEXT)"
+                "userReminderTime TEXT)"
         );
 
-
+        //linking user medicationID to userID by the use of foreign keys for increased security
         MyDB.execSQL("CREATE TABLE IF NOT EXISTS userMedication(" +
                 "ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "medicationID INTEGER," +
@@ -52,15 +51,14 @@ public class DBHandler extends SQLiteOpenHelper {
         );
     }
 
-
-
-
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
+        //if table exists currently in the database, do not create a new one
         MyDB.execSQL("drop Table if exists users");
     }
 
-    public Boolean insertMedication(String medicationName, String medicationType, String medicationDose, String medicationMeasurement, String medicationIntructions, String medicationReminder, String timepicker3) {
+    //insert medication function, including all values based on user input
+    public Boolean insertMedication(String medicationName, String medicationType, String medicationDose, String medicationMeasurement, String medicationIntructions, String medicationReminder, String userReminderTime) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("medicationName", medicationName);
@@ -69,7 +67,7 @@ public class DBHandler extends SQLiteOpenHelper {
         contentValues.put("medicationMeasurement", medicationMeasurement);
         contentValues.put("medicationIntructions", medicationIntructions);
         contentValues.put("medicationReminder", medicationReminder);
-        contentValues.put("timepicker3", timepicker3);
+        contentValues.put("userReminderTime", userReminderTime);
         long result = MyDB.insert("userMedications", null, contentValues);
         System.out.println("result" + result);
         if (result == -1) return false;
@@ -78,20 +76,8 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-//    public Boolean innerjoinTable(int medicationID, int userID){
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put("medicationID", medicationID);
-//        contentValues.put("userID", userID);
-//        long result = MyDB.insert("userMedication", null, contentValues);
-//        System.out.println("result" + result);
-//        if (result == -1) return false;
-//        else
-//            return true;
-//    }
 
-
-
+    //insert user data based on user input
     public Boolean insertData(String firstname, String lastname, String username, String userbirthday, String password) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -107,6 +93,7 @@ public class DBHandler extends SQLiteOpenHelper {
             return true;
     }
 
+    //method to check if username currently exists in the database
     public Boolean checkusername(String username) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from users where username = ?", new String[]{username});
@@ -116,6 +103,7 @@ public class DBHandler extends SQLiteOpenHelper {
             return false;
     }
 
+    //method to check the password against the username, if correct the user will be logged in
     public Boolean checkusernamepassword(String username, String password) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         Cursor cursor = MyDB.rawQuery("Select * from users where username = ? and password = ?", new String[]{username, password});
@@ -125,75 +113,13 @@ public class DBHandler extends SQLiteOpenHelper {
             return false;
     }
 
-
-//    public int getNextMedicationID() {
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
-//        //String query = "Select medicationID from userMedications ORDER BY medicationID DESC LIMIT 1;";
-//        Cursor cursor = MyDB.rawQuery("Select medicationID from userMedications ORDER BY medicationID DESC LIMIT 1;", null);
-//        cursor.moveToFirst();
-//        if (cursor.moveToFirst()) {
-//        int currentID = cursor.getInt(cursor.getInt(0));
-//            System.out.println(cursor.getInt(currentID));
-//        }
-//        cursor.close();
-//        return currentID +1 ;
-//
-//    }
-//
-    public int getUserID(String userID) {
-        SQLiteDatabase MyDB = this.getReadableDatabase();
-        String query = "Select username from users WHERE userID = \"" + userID + "\";";
-        int currentUser = -1;
-        Cursor cursor2 = MyDB.rawQuery(query, null);
-        if (cursor2.moveToFirst()) {
-            currentUser = cursor2.getInt(0);
-
-        }
-        cursor2.close();
-        System.out.println(currentUser);
-        return currentUser;
-
-    }
-
-//    }
-//    public ArrayList<Integer> getMedicationID() {
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
-//        String query = "Select medicationID,medicationName from userMedications";
-//        Cursor cursor2 = MyDB.rawQuery(query, null);
-//        //HashMap<Integer,String> medicationList = new HashMap<>();
-//        ArrayList<Integer> listMedications = new ArrayList<>();
-//        if (cursor2.moveToFirst()) {
-//            currentMedicationID = cursor2.getInt(0);
-//            listMedications.add(currentMedicationID);
-//            cursor2.moveToNext();
-//        }
-//
-//        return listMedications;
-//
-//    }
-
-//}
-//    public int getUserID() {
-//        SQLiteDatabase MyDB = this.getReadableDatabase();
-//        String query = "Select userID from users  WHERE userID = \"" + userID + "\";";
-//        Cursor cursor2 = MyDB.rawQuery(query, null);
-//        if (cursor2.moveToFirst()) {
-//            userIDNext = cursor2.getInt(0);
-//            cursor2.moveToNext();
-//        }
-//
-//        return userIDNext;
-//    }
-//
-
-
+    //method which created an array of relevant medication information, to be displayed on the homepage
     public ArrayList<String> getMedicationNames() {
         SQLiteDatabase MyDB = this.getReadableDatabase();
-        String query = "Select medicationName, medicationType,medicationDose, medicationMeasurement,timepicker3, medicationReminder from userMedications";
+        String query = "Select medicationName, medicationType,medicationDose, medicationMeasurement,userReminderTime, medicationReminder from userMedications";
         Cursor cursor2 = MyDB.rawQuery(query, null);
-
-        //HashMap<Integer,String> medicationList = new HashMap<>();
         ArrayList<String> listMedications = new ArrayList<>();
+        //cursor moves to each column in database, and retrieved values from columns based on numbers 0 to 5
         if (cursor2.moveToFirst()) {
             do{
                 String currentMedicationName = cursor2.getString(0);
@@ -202,9 +128,11 @@ public class DBHandler extends SQLiteOpenHelper {
                 String currentmedicationMeasurement = cursor2.getString(3);
                 String currenttimepicker3 = cursor2.getString(4);
                 String currentmedicationReminder = cursor2.getString(5);
+                //concateing all strings of information about a medication together to display as a list
                 String oneMedication = currentMedicationName + " | " + currentMedicationType + " | " + currentmedicationDose + currentmedicationMeasurement + "     |     " + currenttimepicker3;
                 listMedications.add("\n" + currentmedicationReminder);
                 listMedications.add(oneMedication);
+                //cursor moves to next value until all medications within the database are displayed
             } while (cursor2.moveToNext());
         }
         cursor2.close();

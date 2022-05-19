@@ -30,38 +30,35 @@ import java.util.Locale;
 
 
 public class MedicationHomepage extends AppCompatActivity {
-    //        welcomebackUser = findViewById(R.id.welcomebackUser);
-//        welcomebackUser.setText("Welcome back " + userData.getUsername());
+
     DBHandler DB;
 
-    //private HashMap<Integer,String> medicationList = new HashMap<>();
-    private ArrayList<Integer> medicationNameID = new ArrayList<>();
+    //creating array list of medication names
     private ArrayList<String> medicationName = new ArrayList<>();
-
     ListView medicationView;
-    TextView welcomebackUser;
-    User userData = new User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medication_homepage);
 
-        String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
-        TextView date  = (TextView) findViewById(R.id.dateTextView);
+        //formatting date to month, date and year
+        String date_now = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
+        TextView date  = findViewById(R.id.dateTextView);
+        date.setText(date_now);
 
-        date.setText(date_n);
         //medication list
         DB = new DBHandler(this);
         this.medicationName = DB.getMedicationNames();
         medicationView = findViewById(R.id.medicationView);
+
+        //array adapter displays a list of elements within the array created in DBHandler.java with the use of a listview
         ArrayAdapter<String> showAdapter;
         showAdapter
          = new ArrayAdapter<String>(this,androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, medicationName);
         medicationView.setAdapter(showAdapter);
 
-       // recyclerviewList = findViewById(R.id.recyclerView);
-
+        /*START of navigation*/
         //NAVIGATION BUTTONS
         ImageButton addbtn =  findViewById(R.id.addbtn);
         ImageButton homepagebtn = findViewById(R.id.homepagebtn);
@@ -69,8 +66,8 @@ public class MedicationHomepage extends AppCompatActivity {
         ImageButton settingbtn = findViewById(R.id.settingbtn);
         ImageButton helpbutton = findViewById(R.id.helpbutton);
 
-        //NAVIGATION
 
+        //NAVIGATION
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,6 +107,7 @@ public class MedicationHomepage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        /*END of navigation*/
 
     }}
 

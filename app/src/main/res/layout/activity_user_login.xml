@@ -10,7 +10,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/applicationLogo"
         android:layout_width="335dp"
         android:layout_height="221dp"
         android:scaleType="centerInside"

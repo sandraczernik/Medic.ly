@@ -14,6 +14,7 @@ public class userHelp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_help);
 
+        /*START of navigation*/
         //NAVIGATION BUTTONS
         ImageButton addbtn = findViewById(R.id.addbtn);
         ImageButton homepagebtn = findViewById(R.id.homepagebtn);
@@ -62,5 +63,6 @@ public class userHelp extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        /*END of navigation*/
     }
 }

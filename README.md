@@ -4,6 +4,7 @@ Medication Application for an android phone & smartwatch.
 Medic.ly is a medication reminder application to remind users when to take their medication using real-time notifications
 
 - Ability to add medications that a user needs to take 
+- Register & Log-in system using SQLite
 - The application will notify the user when to take the medication based on the time and date input by the user
 - Notifications will be sent to both an android phone and a smartwatch.
 
